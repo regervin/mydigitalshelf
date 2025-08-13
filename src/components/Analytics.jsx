@@ -1,5 +1,6 @@
 import React from 'react'
-import { BarChart3, TrendingUp, Users, DollarSign } from 'lucide-react'
+import { BarChart3 } from 'lucide-react'
+import './shared.css'
 
 const Analytics = () => {
   return (
@@ -8,46 +9,12 @@ const Analytics = () => {
         <h1 className="page-title">Analytics</h1>
       </div>
 
-      <div className="analytics-grid">
-        <div className="analytics-card">
-          <div className="card-header">
-            <h3>Revenue Trend</h3>
-            <TrendingUp size={20} />
-          </div>
-          <div className="chart-placeholder">
-            <p>Revenue chart would go here</p>
-          </div>
+      <div className="empty-state-container">
+        <div className="empty-state-icon">
+          <BarChart3 size={64} />
         </div>
-
-        <div className="analytics-card">
-          <div className="card-header">
-            <h3>Customer Growth</h3>
-            <Users size={20} />
-          </div>
-          <div className="chart-placeholder">
-            <p>Customer growth chart would go here</p>
-          </div>
-        </div>
-
-        <div className="analytics-card">
-          <div className="card-header">
-            <h3>Product Performance</h3>
-            <BarChart3 size={20} />
-          </div>
-          <div className="chart-placeholder">
-            <p>Product performance chart would go here</p>
-          </div>
-        </div>
-
-        <div className="analytics-card">
-          <div className="card-header">
-            <h3>Sales by Category</h3>
-            <DollarSign size={20} />
-          </div>
-          <div className="chart-placeholder">
-            <p>Sales category chart would go here</p>
-          </div>
-        </div>
+        <h3>No analytics data yet</h3>
+        <p>Start selling products to see detailed analytics and insights about your business performance.</p>
       </div>
     </div>
   )

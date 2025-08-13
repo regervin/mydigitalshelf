@@ -1,14 +1,8 @@
 import React from 'react'
-import { HardDrive, Upload, Folder, File } from 'lucide-react'
+import { HardDrive, Upload } from 'lucide-react'
+import './shared.css'
 
 const Storage = () => {
-  const files = [
-    { name: 'marketing-course.zip', size: '245 MB', type: 'Archive' },
-    { name: 'ebook-bundle.pdf', size: '12 MB', type: 'PDF' },
-    { name: 'templates.zip', size: '89 MB', type: 'Archive' },
-    { name: 'photos.zip', size: '156 MB', type: 'Archive' }
-  ]
-
   return (
     <div className="storage-page">
       <div className="page-header">
@@ -24,27 +18,24 @@ const Storage = () => {
           <HardDrive size={32} />
           <div>
             <h3>Storage Used</h3>
-            <p>502 MB / 10 GB</p>
+            <p>0 MB / 10 GB</p>
             <div className="progress-bar">
-              <div className="progress" style={{ width: '5%' }}></div>
+              <div className="progress" style={{ width: '0%' }}></div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="files-list">
-        <h3>Files</h3>
-        {files.map((file, index) => (
-          <div key={index} className="file-item">
-            <div className="file-info">
-              <File size={20} />
-              <div>
-                <h4>{file.name}</h4>
-                <p>{file.type} • {file.size}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+      <div className="empty-state-container">
+        <div className="empty-state-icon">
+          <HardDrive size={64} />
+        </div>
+        <h3>No files uploaded yet</h3>
+        <p>Upload your digital products and files to get started.</p>
+        <button className="action-button primary">
+          <Upload size={16} />
+          Upload Your First File
+        </button>
       </div>
     </div>
   )

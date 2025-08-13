@@ -1,31 +1,8 @@
 import React from 'react'
-import { Plus, UserCheck, Users, DollarSign } from 'lucide-react'
+import { Plus, UserCheck } from 'lucide-react'
+import './Memberships.css'
 
 const Memberships = () => {
-  const memberships = [
-    {
-      id: 1,
-      name: 'Premium Access',
-      price: '$29/month',
-      members: 45,
-      revenue: '$1,305'
-    },
-    {
-      id: 2,
-      name: 'VIP Community',
-      price: '$99/month',
-      members: 23,
-      revenue: '$2,277'
-    },
-    {
-      id: 3,
-      name: 'Basic Plan',
-      price: '$9/month',
-      members: 156,
-      revenue: '$1,404'
-    }
-  ]
-
   return (
     <div className="memberships-page">
       <div className="page-header">
@@ -36,30 +13,16 @@ const Memberships = () => {
         </button>
       </div>
 
-      <div className="memberships-grid">
-        {memberships.map((membership) => (
-          <div key={membership.id} className="membership-card">
-            <div className="membership-header">
-              <div className="membership-icon">
-                <UserCheck size={24} />
-              </div>
-            </div>
-            
-            <h3 className="membership-name">{membership.name}</h3>
-            <p className="membership-price">{membership.price}</p>
-            
-            <div className="membership-stats">
-              <div className="stat">
-                <Users size={16} />
-                <span>{membership.members} members</span>
-              </div>
-              <div className="stat">
-                <DollarSign size={16} />
-                <span>{membership.revenue}</span>
-              </div>
-            </div>
-          </div>
-        ))}
+      <div className="empty-state-container">
+        <div className="empty-state-icon">
+          <UserCheck size={64} />
+        </div>
+        <h3>No memberships yet</h3>
+        <p>Create membership plans to offer recurring access to your content.</p>
+        <button className="action-button primary">
+          <Plus size={16} />
+          Create Your First Membership
+        </button>
       </div>
     </div>
   )

@@ -10,18 +10,28 @@ import Register from './components/Register'
 function App() {
   return (
     <ThemeProvider>
-      <AuthProvider>
-        <Router>
-          <div className="App">
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Routes>
-          </div>
-        </Router>
-      </AuthProvider>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/login" element={
+              <AuthProvider>
+                <Login />
+              </AuthProvider>
+            } />
+            <Route path="/register" element={
+              <AuthProvider>
+                <Register />
+              </AuthProvider>
+            } />
+            <Route path="/dashboard" element={
+              <AuthProvider>
+                <Dashboard />
+              </AuthProvider>
+            } />
+          </Routes>
+        </div>
+      </Router>
     </ThemeProvider>
   )
 }

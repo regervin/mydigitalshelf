@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
 import { 
   BookOpen, 
   Users, 
@@ -18,7 +17,6 @@ import './Homepage.css'
 
 const Homepage = () => {
   const navigate = useNavigate()
-  const { user } = useAuth()
 
   const features = [
     {
@@ -80,12 +78,8 @@ const Homepage = () => {
     }
   ]
 
-  const handleDashboardClick = () => {
-    if (user) {
-      navigate('/dashboard')
-    } else {
-      navigate('/login')
-    }
+  const handleGetStarted = () => {
+    navigate('/login')
   }
 
   return (
@@ -101,9 +95,9 @@ const Homepage = () => {
           </p>
           <button 
             className="cta-button"
-            onClick={handleDashboardClick}
+            onClick={handleGetStarted}
           >
-            {user ? 'Go To Dashboard' : 'Get Started'}
+            Get Started
           </button>
         </div>
       </header>
@@ -150,9 +144,9 @@ const Homepage = () => {
           </p>
           <button 
             className="cta-button"
-            onClick={handleDashboardClick}
+            onClick={handleGetStarted}
           >
-            {user ? 'Go to Dashboard' : 'Get Started Now'}
+            Get Started Now
           </button>
         </div>
       </section>

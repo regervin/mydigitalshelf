@@ -18,46 +18,65 @@ export const AuthProvider = ({ children }) => {
     // Check for stored user data on app load
     const storedUser = localStorage.getItem('user')
     if (storedUser) {
-      setUser(JSON.parse(storedUser))
+      try {
+        setUser(JSON.parse(storedUser))
+      } catch (error) {
+        console.error('Error parsing stored user data:', error)
+        localStorage.removeItem('user')
+      }
     }
     setLoading(false)
   }, [])
 
   const login = async (email, password) => {
-    // Simulate API call
-    if (email && password) {
-      const userData = {
-        id: 1,
-        name: 'John Doe',
-        email: email,
-        avatar: null
+    try {
+      // Simulate API call
+      if (email && password) {
+        const userData = {
+          id: 1,
+          name: 'John Doe',
+          email: email,
+          avatar: null
+        }
+        setUser(userData)
+        localStorage.setItem('user', JSON.stringify(userData))
+        return { success: true }
       }
-      setUser(userData)
-      localStorage.setItem('user', JSON.stringify(userData))
-      return { success: true }
+      return { success: false, error: 'Invalid credentials' }
+    } catch (error) {
+      console.error('Login error:', error)
+      return { success: false, error: 'Login failed' }
     }
-    return { success: false, error: 'Invalid credentials' }
   }
 
   const register = async (name, email, password) => {
-    // Simulate API call
-    if (name && email && password) {
-      const userData = {
-        id: 1,
-        name: name,
-        email: email,
-        avatar: null
+    try {
+      // Simulate API call
+      if (name && email && password) {
+        const userData = {
+          id: 1,
+          name: name,
+          email: email,
+          avatar: null
+        }
+        setUser(userData)
+        localStorage.setItem('user', JSON.stringify(userData))
+        return { success: true }
       }
-      setUser(userData)
-      localStorage.setItem('user', JSON.stringify(userData))
-      return { success: true }
+      return { success: false, error: 'Registration failed' }
+    } catch (error) {
+      console.error('Registration error:', error)
+      return { success: false, error: 'Registration failed' }
     }
-    return { success: false, error: 'Registration failed' }
   }
 
   const logout = () => {
-    setUser(null)
-    localStorage.removeItem('user')
+    try {
+      setUser(null)
+      localStorage.removeItem('user')
+    } catch (error) {
+      console.error('Logout error:', error)
+    }
   }
 
   const value = {

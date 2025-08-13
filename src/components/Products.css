@@ -15,6 +15,33 @@
   color: #49274a;
 }
 
+.empty-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.empty-state-icon {
+  color: #94618e;
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+
+.empty-state-container h3 {
+  font-size: 1.5rem;
+  color: #49274a;
+  margin-bottom: 10px;
+}
+
+.empty-state-container p {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
