@@ -111,11 +111,6 @@ const Layout = ({ children }) => {
           </div>
           
           <div className="nav-right">
-            {/* Notifications */}
-            <button className="nav-icon-btn">
-              <Bell size={20} />
-              <span className="notification-badge">3</span>
-            </button>
 
             {/* User Dropdown */}
             <div className="dropdown">
